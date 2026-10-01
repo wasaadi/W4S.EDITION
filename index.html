@@ -4,12 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>W4S.EDITION — Professional Video Editor</title>
+<title>W4S.EDITION — Visual Editor</title>
 
-<meta name="description" content="W4S.EDITION — Professional video editing for YouTube, Shorts and Instagram Reels.">
-<meta name="theme-color" content="#080808">
+<meta name="description" content="W4S.EDITION — Professional video editing for YouTube, Shorts and Instagram.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+    --bg:#050510;
+    --bg2:#08081a;
+    --card:rgba(255,255,255,.055);
+    --card2:rgba(255,255,255,.035);
+
+    --white:#f7f7ff;
+    --muted:#9292a8;
+    --dim:#626277;
+
+    --purple:#8b5cf6;
+    --violet:#a855f7;
+    --blue:#38bdf8;
+    --pink:#ec4899;
+
+    --line:rgba(255,255,255,.11);
+}
+
 *{
     margin:0;
     padding:0;
@@ -21,149 +44,254 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#070707;
-    color:#fff;
-    line-height:1.6;
+    background:
+        radial-gradient(circle at 10% 0%,rgba(139,92,246,.20),transparent 28%),
+        radial-gradient(circle at 90% 15%,rgba(56,189,248,.13),transparent 25%),
+        radial-gradient(circle at 50% 70%,rgba(168,85,247,.08),transparent 30%),
+        var(--bg);
+
+    color:var(--white);
+    font-family:Inter,Arial,sans-serif;
     overflow-x:hidden;
 }
 
+body:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+    background-size:70px 70px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
 a{
-    color:inherit;
     text-decoration:none;
+    color:inherit;
 }
 
 img{
-    max-width:100%;
+    width:100%;
     display:block;
 }
 
 .container{
-    width:min(1150px, 92%);
+    width:min(1160px,92%);
     margin:auto;
 }
 
-/* ================= NAVBAR ================= */
+/* =========================
+NAV
+========================= */
 
-nav{
+.nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    z-index:999;
-    padding:18px 0;
-    background:rgba(7,7,7,.78);
-    backdrop-filter:blur(15px);
+    z-index:1000;
+
+    padding:17px 0;
+
+    background:rgba(5,5,16,.62);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
     border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .nav-inner{
+    width:min(1160px,92%);
+    margin:auto;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:3px;
+    font-family:"Space Grotesk";
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:-1px;
 }
 
-.logo span{
-    color:#999;
+.logo-main{
+    color:white;
+}
+
+.logo-dot{
+    color:var(--purple);
+}
+
+.logo-end{
+    color:#73738c;
 }
 
 .nav-links{
     display:flex;
     gap:28px;
-    list-style:none;
+
+    color:#8d8da1;
+    font-size:12px;
 }
 
 .nav-links a{
-    font-size:13px;
-    color:#aaa;
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:#fff;
+    color:white;
 }
 
-.nav-btn{
-    border:1px solid #444;
-    padding:9px 17px;
-    border-radius:30px;
-    font-size:12px;
+.nav-button{
+    padding:10px 16px;
+
+    border-radius:50px;
+    border:1px solid rgba(139,92,246,.35);
+
+    background:rgba(139,92,246,.09);
+
+    font-size:11px;
+    font-weight:700;
+
     transition:.3s;
 }
 
-.nav-btn:hover{
-    background:#fff;
-    color:#000;
+.nav-button:hover{
+    background:var(--purple);
+    border-color:var(--purple);
+
+    box-shadow:0 0 25px rgba(139,92,246,.35);
 }
 
-/* ================= HERO ================= */
+/* =========================
+HERO
+========================= */
 
 .hero{
     min-height:100vh;
+
     display:flex;
     align-items:center;
+
+    padding:150px 0 100px;
+
     position:relative;
-    padding:120px 0 70px;
 }
 
 .hero:before{
     content:"";
+
     position:absolute;
-    width:420px;
-    height:420px;
-    background:rgba(255,255,255,.06);
-    filter:blur(100px);
+
+    width:450px;
+    height:450px;
+
+    left:-180px;
+    top:150px;
+
+    background:rgba(139,92,246,.18);
+
+    filter:blur(120px);
+
     border-radius:50%;
-    top:10%;
-    right:-150px;
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1.15fr .85fr;
-    gap:70px;
+    grid-template-columns:1.05fr .95fr;
+
+    gap:80px;
+
     align-items:center;
 }
 
-.badge{
+.available{
     display:inline-flex;
-    border:1px solid #333;
-    padding:8px 14px;
-    border-radius:30px;
-    color:#aaa;
-    font-size:11px;
+    align-items:center;
+    gap:9px;
+
+    padding:8px 13px;
+
+    border-radius:50px;
+
+    border:1px solid rgba(139,92,246,.25);
+
+    background:rgba(139,92,246,.07);
+
+    color:#aaaac0;
+
+    font-size:10px;
+
     letter-spacing:2px;
     text-transform:uppercase;
-    margin-bottom:22px;
+
+    margin-bottom:25px;
+}
+
+.available-dot{
+    width:6px;
+    height:6px;
+
+    background:#a78bfa;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 10px #8b5cf6,
+        0 0 20px #8b5cf6;
 }
 
 .hero h1{
-    font-size:clamp(52px,8vw,105px);
-    line-height:.9;
-    letter-spacing:-5px;
-    font-weight:900;
+    font-family:"Space Grotesk";
+
+    font-size:clamp(60px,8.5vw,112px);
+
+    line-height:.84;
+
+    letter-spacing:-7px;
+
+    margin-bottom:30px;
 }
 
-.hero h1 span{
-    color:#888;
+.hero h1 .muted{
+    color:#595970;
 }
 
-.hero-sub{
+.gradient-text{
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff 0%,
+            #c4b5fd 35%,
+            #8b5cf6 65%,
+            #38bdf8 100%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero-description{
     max-width:570px;
-    margin:28px 0;
-    color:#999;
-    font-size:16px;
+
+    color:#9090a5;
+
+    font-size:15px;
+
+    line-height:1.85;
+
+    margin-bottom:35px;
 }
 
-.hero-buttons{
+.buttons{
     display:flex;
-    gap:13px;
+    gap:11px;
     flex-wrap:wrap;
 }
 
@@ -172,442 +300,994 @@ nav{
     align-items:center;
     justify-content:center;
     gap:9px;
-    padding:14px 23px;
-    border-radius:40px;
-    font-size:13px;
+
+    padding:14px 19px;
+
+    border-radius:13px;
+
+    font-size:12px;
     font-weight:700;
-    transition:.3s;
+
+    border:1px solid var(--line);
+
+    transition:.35s;
 }
 
-.btn-main{
-    background:#fff;
-    color:#000;
+.btn-primary{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #8b5cf6 50%,
+            #38bdf8
+        );
+
+    border-color:transparent;
+
+    box-shadow:
+        0 12px 40px rgba(124,58,237,.22);
 }
 
-.btn-main:hover{
+.btn-primary:hover{
     transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 45px rgba(139,92,246,.38);
 }
 
-.btn-outline{
-    border:1px solid #333;
-    color:#fff;
+.btn-glass{
+    background:rgba(255,255,255,.045);
+    color:#ddddec;
 }
 
-.btn-outline:hover{
-    border-color:#777;
+.btn-glass:hover{
+    background:rgba(255,255,255,.09);
+
     transform:translateY(-3px);
+
+    border-color:rgba(139,92,246,.4);
 }
 
-/* Hero image */
+/* HERO PHOTO */
 
-.hero-photo{
+.hero-visual{
     position:relative;
 }
 
+.hero-photo{
+    position:relative;
+
+    padding:8px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.65),
+            rgba(56,189,248,.28),
+            rgba(236,72,153,.35)
+        );
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.55),
+        0 0 80px rgba(139,92,246,.10);
+}
+
 .hero-photo img{
-    width:100%;
-    height:560px;
+    height:590px;
+
     object-fit:cover;
-    border-radius:25px;
-    filter:grayscale(100%);
-    border:1px solid #222;
+
+    border-radius:21px;
+
+    filter:
+        grayscale(80%)
+        contrast(1.04);
+
+    transition:1s;
+}
+
+.hero-photo:hover img{
+    filter:
+        grayscale(5%)
+        contrast(1.02);
+
+    transform:scale(1.012);
 }
 
 .photo-label{
     position:absolute;
-    bottom:20px;
-    left:20px;
-    right:20px;
-    padding:17px;
-    border-radius:17px;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.1);
+
+    left:25px;
+    bottom:25px;
+
+    padding:13px 16px;
+
+    border-radius:13px;
+
+    background:rgba(5,5,16,.72);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#b5b5c8;
+
+    font-size:9px;
+
+    letter-spacing:2px;
 }
 
-.photo-label strong{
+.floating-card{
+    position:absolute;
+
+    top:30px;
+    right:-25px;
+
+    z-index:5;
+
+    padding:14px 16px;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.20),
+            rgba(56,189,248,.08)
+        );
+
+    border:1px solid rgba(139,92,246,.28);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+    color:#85859a;
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+}
+
+.floating-card strong{
     display:block;
-    font-size:15px;
+
+    color:white;
+
+    font-family:"Space Grotesk";
+
+    font-size:18px;
+
+    margin-top:4px;
+
+    letter-spacing:0;
 }
 
-.photo-label small{
-    color:#999;
+/* =========================
+MARQUEE
+========================= */
+
+.marquee{
+    overflow:hidden;
+
+    padding:17px 0;
+
+    border-top:1px solid rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    background:rgba(139,92,246,.025);
 }
 
-/* ================= SECTIONS ================= */
+.marquee-track{
+    width:max-content;
+
+    display:flex;
+
+    gap:30px;
+
+    animation:marquee 25s linear infinite;
+
+    color:#66667a;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.marquee-track .accent{
+    color:#8b5cf6;
+}
+
+@keyframes marquee{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* =========================
+GENERAL
+========================= */
 
 section{
-    padding:110px 0;
+    padding:115px 0;
 }
 
-.section-head{
-    margin-bottom:55px;
-}
+.label{
+    color:#7f7f95;
 
-.eyebrow{
-    color:#777;
-    font-size:11px;
-    letter-spacing:3px;
+    font-size:10px;
+
+    letter-spacing:4px;
+
     text-transform:uppercase;
-    margin-bottom:12px;
+
+    margin-bottom:19px;
 }
 
-.section-head h2{
-    font-size:clamp(35px,5vw,62px);
-    line-height:1;
-    letter-spacing:-2px;
+.title{
+    font-family:"Space Grotesk";
+
+    font-size:clamp(42px,5.5vw,72px);
+
+    line-height:.94;
+
+    letter-spacing:-4px;
 }
 
-.section-head p{
-    color:#888;
+.description{
+    color:#88889d;
+
     max-width:600px;
-    margin-top:18px;
+
+    font-size:14px;
+
+    line-height:1.85;
 }
 
-/* ================= ABOUT ================= */
+/* =========================
+STATS
+========================= */
 
-.about-grid{
+.stats{
+    margin-top:55px;
+
     display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:70px;
-    align-items:center;
+
+    grid-template-columns:repeat(3,1fr);
+
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
 
-.about-images{
+.stat{
+    padding:28px 20px;
+
+    border-right:1px solid var(--line);
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat-number{
+    font-family:"Space Grotesk";
+
+    font-size:31px;
+
+    background:
+        linear-gradient(90deg,#fff,#8b5cf6);
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    margin-bottom:7px;
+}
+
+.stat-text{
+    color:#66667b;
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+}
+
+/* =========================
+ABOUT
+========================= */
+
+.about-head{
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:.8fr 1.2fr;
+
+    gap:80px;
+}
+
+.about-text{
+    padding-top:30px;
+}
+
+.about-gallery{
+    margin-top:60px;
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
     gap:14px;
 }
 
-.about-images img{
-    width:100%;
-    height:260px;
+.gallery-main{
+    height:600px;
+
     object-fit:cover;
-    border-radius:18px;
-    border:1px solid #222;
+
+    border-radius:23px;
+
+    border:1px solid var(--line);
+
+    filter:grayscale(70%);
+
+    transition:.7s;
 }
 
-.about-images img:first-child{
-    height:350px;
-    grid-row:span 2;
-}
-
-.about-text h3{
-    font-size:34px;
-    margin-bottom:20px;
-}
-
-.about-text p{
-    color:#999;
-    margin-bottom:18px;
-}
-
-.about-points{
+.gallery-side{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-top:30px;
+
+    grid-template-rows:1fr 1fr;
+
+    gap:14px;
 }
 
-.point{
-    padding:16px;
-    border:1px solid #222;
-    border-radius:14px;
-    background:#0c0c0c;
+.gallery-side img{
+    height:293px;
+
+    object-fit:cover;
+
+    border-radius:23px;
+
+    border:1px solid var(--line);
+
+    filter:grayscale(70%);
+
+    transition:.7s;
 }
 
-.point strong{
-    display:block;
-    font-size:13px;
+.about-gallery img:hover{
+    filter:grayscale(0%);
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 20px 50px rgba(139,92,246,.10);
 }
 
-.point span{
-    color:#777;
-    font-size:11px;
-}
-
-/* ================= SERVICES ================= */
-
-.services{
-    background:#0a0a0a;
-}
+/* =========================
+SERVICES
+========================= */
 
 .service-grid{
+    margin-top:55px;
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+
+    gap:14px;
 }
 
-.service-card{
-    border:1px solid #222;
-    padding:30px;
-    border-radius:22px;
-    background:#0d0d0d;
-    transition:.35s;
+.service{
+    min-height:340px;
+
+    padding:28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:23px;
+
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(15px);
+
+    transition:.4s;
 }
 
-.service-card:hover{
-    transform:translateY(-7px);
-    border-color:#555;
+.service:before{
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    right:-70px;
+    top:-70px;
+
+    border-radius:50%;
+
+    background:rgba(139,92,246,.16);
+
+    filter:blur(30px);
+}
+
+.service:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(139,92,246,.35);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.25),
+        0 0 40px rgba(139,92,246,.06);
+}
+
+.service-number{
+    color:#68687c;
+
+    font-size:10px;
+
+    letter-spacing:3px;
 }
 
 .service-icon{
-    width:50px;
-    height:50px;
+    margin-top:35px;
+
+    width:47px;
+    height:47px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     border-radius:14px;
-    background:#171717;
-    margin-bottom:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.20),
+            rgba(56,189,248,.08)
+        );
+
+    border:1px solid rgba(139,92,246,.20);
+
+    font-size:20px;
 }
 
-.service-icon svg{
-    width:25px;
-    height:25px;
-    fill:#fff;
+.service h3{
+    font-family:"Space Grotesk";
+
+    font-size:23px;
+
+    margin:18px 0 10px;
 }
 
-.service-card h3{
-    font-size:21px;
-    margin-bottom:10px;
-}
+.service p{
+    color:#727287;
 
-.service-card p{
-    color:#777;
-    font-size:13px;
-    margin-bottom:25px;
+    font-size:12px;
+
+    line-height:1.75;
+
+    max-width:285px;
 }
 
 .price{
-    font-size:22px;
-    font-weight:800;
+    position:absolute;
+
+    left:28px;
+    bottom:27px;
+
+    font-family:"Space Grotesk";
+
+    font-size:18px;
+
+    color:#c4b5fd;
 }
 
-.price small{
-    font-size:11px;
-    color:#777;
-    font-weight:400;
-}
+/* =========================
+WORK
+========================= */
 
-/* ================= SOFTWARE ================= */
+.work-head{
+    display:flex;
 
-.software-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
+    justify-content:space-between;
 
-.software{
-    border:1px solid #222;
-    padding:23px;
-    border-radius:16px;
-    background:#0b0b0b;
-}
+    align-items:end;
 
-.software b{
-    font-size:17px;
-}
-
-.software span{
-    display:block;
-    color:#666;
-    font-size:11px;
-    margin-top:4px;
-}
-
-/* ================= WORK ================= */
-
-.work{
-    background:#0a0a0a;
+    gap:30px;
 }
 
 .work-grid{
+    margin-top:55px;
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
 }
 
-.work-card{
-    min-height:290px;
-    border:1px solid #222;
-    border-radius:22px;
-    padding:30px;
+.work{
+    min-height:355px;
+
     position:relative;
+
     overflow:hidden;
-    background:linear-gradient(145deg,#111,#080808);
+
+    padding:30px;
+
+    border-radius:23px;
+
+    border:1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(139,92,246,.12),
+            transparent 30%
+        ),
+        rgba(255,255,255,.025);
+
+    transition:.4s;
 }
 
-.work-card:after{
-    content:"";
-    position:absolute;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:rgba(255,255,255,.04);
-    right:-70px;
-    top:-70px;
+.work:hover{
+    transform:translateY(-7px);
+
+    border-color:rgba(56,189,248,.25);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.3);
 }
 
 .work-top{
     display:flex;
+
+    justify-content:space-between;
+
     align-items:center;
-    gap:15px;
-    margin-bottom:70px;
 }
 
-.social-icon{
-    width:52px;
-    height:52px;
-    border:1px solid #333;
-    border-radius:15px;
+.work-index{
+    color:#57576c;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+.platform{
     display:flex;
+
     align-items:center;
-    justify-content:center;
+
+    gap:8px;
+
+    color:#aaaabd;
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
 }
 
-.social-icon svg{
-    width:25px;
-    height:25px;
-    fill:#fff;
+.platform svg{
+    width:21px;
+    height:21px;
+
+    fill:white;
 }
 
-.work-card h3{
-    font-size:23px;
+.work h3{
+    font-family:"Space Grotesk";
+
+    font-size:29px;
+
+    margin-top:70px;
 }
 
-.work-card p{
-    color:#777;
-    font-size:13px;
-    margin-bottom:22px;
+.work p{
+    margin-top:10px;
+
+    color:#707085;
+
+    font-size:12px;
+
+    line-height:1.75;
+
+    max-width:400px;
 }
 
 .work-link{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    font-size:12px;
+    position:absolute;
+
+    left:30px;
+    bottom:27px;
+
+    font-size:11px;
+
     font-weight:700;
+
+    color:#c4b5fd;
 }
 
-/* ================= PROCESS ================= */
+.work-link span{
+    margin-left:5px;
 
-.process-grid{
+    transition:.3s;
+}
+
+.work:hover .work-link span{
+    margin-left:12px;
+}
+
+/* =========================
+TOOLS
+========================= */
+
+.tools{
+    margin-top:55px;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-}
 
-.process{
-    padding:25px;
-    border:1px solid #222;
-    border-radius:17px;
-    background:#0b0b0b;
-}
+    grid-template-columns:repeat(3,1fr);
 
-.number{
-    font-size:12px;
-    color:#666;
-    margin-bottom:35px;
-}
-
-.process h3{
-    font-size:18px;
-    margin-bottom:8px;
-}
-
-.process p{
-    color:#777;
-    font-size:12px;
-}
-
-/* ================= CONTACT ================= */
-
-.contact{
-    text-align:center;
-}
-
-.contact-box{
-    max-width:850px;
-    margin:auto;
-    padding:65px 30px;
-    border:1px solid #222;
-    border-radius:30px;
-    background:radial-gradient(circle at top,#151515,#090909 65%);
-}
-
-.contact-box h2{
-    font-size:clamp(40px,7vw,80px);
-    letter-spacing:-4px;
-    line-height:.95;
-}
-
-.contact-box p{
-    color:#888;
-    max-width:550px;
-    margin:22px auto 30px;
-}
-
-.contact-buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
     gap:12px;
 }
 
-.contact-info{
-    margin-top:35px;
-    color:#666;
-    font-size:12px;
+.tool{
+    padding:26px;
+
+    border-radius:18px;
+
+    border:1px solid var(--line);
+
+    background:rgba(255,255,255,.025);
+
+    transition:.35s;
 }
 
-.contact-info a:hover{
-    color:#fff;
+.tool:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(139,92,246,.3);
+
+    background:rgba(139,92,246,.06);
 }
 
-/* ================= FOOTER ================= */
+.tool-name{
+    font-family:"Space Grotesk";
 
-footer{
-    border-top:1px solid #1c1c1c;
-    padding:30px 0;
+    font-size:18px;
 }
 
-.footer-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
+.tool-desc{
+    margin-top:7px;
 
-.footer-inner p{
-    color:#555;
+    color:#646478;
+
     font-size:11px;
 }
 
-.footer-brand{
-    font-size:15px;
-    font-weight:800;
+/* =========================
+PROCESS
+========================= */
+
+.process{
+    margin-top:55px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+}
+
+.step{
+    min-height:230px;
+
+    padding:25px;
+
+    border:1px solid var(--line);
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.025);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    transition:.35s;
+}
+
+.step:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(56,189,248,.25);
+
+    background:rgba(56,189,248,.035);
+}
+
+.step-no{
+    color:#56566b;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+.step h3{
+    font-family:"Space Grotesk";
+
+    font-size:21px;
+}
+
+.step p{
+    color:#67677c;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+/* =========================
+CONTACT
+========================= */
+
+.contact-box{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:80px 40px 45px;
+
+    border-radius:31px;
+
+    border:1px solid rgba(139,92,246,.22);
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(139,92,246,.23),
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 10% 100%,
+            rgba(56,189,248,.09),
+            transparent 30%
+        ),
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.35);
+}
+
+.contact-box:after{
+    content:"W4S";
+
+    position:absolute;
+
+    right:-20px;
+    bottom:-85px;
+
+    font-family:"Space Grotesk";
+
+    font-size:240px;
+
+    font-weight:900;
+
+    color:rgba(139,92,246,.035);
+
+    pointer-events:none;
+}
+
+.contact-center{
+    text-align:center;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.contact-title{
+    font-family:"Space Grotesk";
+
+    font-size:clamp(55px,8vw,100px);
+
+    line-height:.82;
+
+    letter-spacing:-6px;
+
+    background:
+        linear-gradient(
+            100deg,
+            white,
+            #c4b5fd,
+            #8b5cf6,
+            #38bdf8
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.contact-copy{
+    max-width:600px;
+
+    margin:27px auto 45px;
+
+    color:#85859a;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+.contact-grid{
+    position:relative;
+
+    z-index:5;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+}
+
+.contact-card{
+    padding:22px;
+
+    border-radius:17px;
+
+    border:1px solid var(--line);
+
+    background:rgba(255,255,255,.045);
+
+    transition:.35s;
+}
+
+.contact-card:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(139,92,246,.32);
+
+    background:rgba(139,92,246,.07);
+}
+
+.contact-icon{
+    width:38px;
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.20),
+            rgba(56,189,248,.08)
+        );
+
+    margin-bottom:15px;
+}
+
+.contact-label{
+    color:#5f5f73;
+
+    font-size:9px;
+
     letter-spacing:2px;
+
+    margin-bottom:7px;
 }
 
-/* ================= ANIMATION ================= */
+.contact-value{
+    font-size:13px;
 
-.fade{
-    animation:fadeUp .9s ease both;
+    font-weight:600;
+
+    word-break:break-word;
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.contact-buttons{
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:23px;
 }
 
-/* ================= MOBILE ================= */
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    padding:35px 0;
+
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+.footer{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.footer-logo{
+    font-family:"Space Grotesk";
+
+    font-weight:700;
+}
+
+.footer-copy{
+    color:#505066;
+
+    font-size:10px;
+}
+
+.footer-links{
+    display:flex;
+
+    gap:16px;
+
+    color:#6b6b80;
+
+    font-size:10px;
+}
+
+.footer-links a:hover{
+    color:#c4b5fd;
+}
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:850px){
 
@@ -616,613 +1296,165 @@ footer{
     }
 
     .hero{
-        padding-top:120px;
+        padding-top:125px;
     }
 
     .hero-grid{
         grid-template-columns:1fr;
-        gap:45px;
+
+        gap:55px;
     }
 
     .hero h1{
-        font-size:62px;
-        letter-spacing:-3px;
+        font-size:clamp(60px,17vw,92px);
+
+        letter-spacing:-5px;
     }
 
     .hero-photo img{
-        height:460px;
+        height:500px;
     }
 
-    .about-grid{
-        grid-template-columns:1fr;
-        gap:45px;
+    .floating-card{
+        right:-8px;
     }
 
-    .service-grid{
+    .about-head{
+        grid-template-columns:1fr;
+
+        gap:10px;
+    }
+
+    .about-text{
+        padding-top:10px;
+    }
+
+    .service-grid,
+    .tools{
         grid-template-columns:1fr;
     }
 
-    .software-grid{
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .contact-grid{
         grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        padding:60px 20px 30px;
+    }
+
+    .footer{
+        flex-direction:column;
+
+        text-align:center;
+    }
+}
+
+@media(max-width:560px){
+
+    section{
+        padding:85px 0;
+    }
+
+    .hero{
+        padding-bottom:75px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .buttons .btn{
+        width:100%;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .stat{
+        border-right:0;
+
+        border-bottom:1px solid var(--line);
+    }
+
+    .stat:last-child{
+        border-bottom:0;
+    }
+
+    .about-gallery{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-main{
+        height:430px;
+    }
+
+    .gallery-side{
+        grid-template-columns:1fr 1fr;
+
+        grid-template-rows:1fr;
+    }
+
+    .gallery-side img{
+        height:210px;
     }
 
     .work-grid{
         grid-template-columns:1fr;
     }
 
-    .process-grid{
-        grid-template-columns:1fr 1fr;
+    .process{
+        grid-template-columns:1fr;
     }
 
-    section{
-        padding:80px 0;
+    .contact-title{
+        font-size:57px;
+
+        letter-spacing:-4px;
+    }
+
+    .contact-buttons .btn{
+        width:100%;
     }
 }
 
-@media(max-width:520px){
-
-    .container{
-        width:90%;
-    }
-
-    .logo{
-        font-size:18px;
-        letter-spacing:2px;
-    }
-
-    .nav-btn{
-        padding:8px 13px;
-        font-size:10px;
-    }
-
-    .hero h1{
-        font-size:53px;
-    }
-
-    .hero-sub{
-        font-size:14px;
-    }
-
-    .hero-photo img{
-        height:420px;
-    }
-
-    .about-images{
-        grid-template-columns:1fr;
-    }
-
-    .about-images img,
-    .about-images img:first-child{
-        height:300px;
-        grid-row:auto;
-    }
-
-    .about-points{
-        grid-template-columns:1fr;
-    }
-
-    .process-grid{
-        grid-template-columns:1fr;
-    }
-
-    .contact-box{
-        padding:50px 20px;
-    }
-
-    .contact-box h2{
-        letter-spacing:-2px;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
-    }
-}
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+<!-- =========================
+NAVIGATION
+========================= -->
 
-<nav>
-<div class="container nav-inner">
+<nav class="nav">
+
+<div class="nav-inner">
 
 <a href="#home" class="logo">
-W4S<span>.EDITION</span>
+<span class="logo-main">W4S</span><span class="logo-dot">.</span><span class="logo-end">EDITION</span>
 </a>
 
-<ul class="nav-links">
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#work">Work</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#work">Work</a>
+<a href="#contact">Contact</a>
+</div>
 
-<a href="#contact" class="nav-btn">HIRE ME</a>
+<a href="#contact" class="nav-button">
+LET'S TALK
+</a>
 
 </div>
+
 </nav>
 
 
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-<div class="container hero-grid">
-
-<div class="fade">
-
-<div class="badge">
-Professional Video Editor
-</div>
-
-<h1>
-EDIT.<br>
-<span>CREATE.</span><br>
-IMPACT.
-</h1>
-
-<p class="hero-sub">
-I’m <strong>W4S AADI</strong>, a professional video editor focused on clean,
-cinematic and engaging edits for YouTube, Shorts and Instagram.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#work" class="btn btn-main">
-VIEW MY WORK
-</a>
-
-<a href="#contact" class="btn btn-outline">
-HIRE ME
-</a>
-
-</div>
-
-</div>
-
-
-<div class="hero-photo fade">
-
-<img src="photo1.jpg" alt="W4S AADI">
-
-<div class="photo-label">
-<strong>W4S AADI</strong>
-<small>Editor • Creator • Visual Storyteller</small>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
-<div class="container">
-
-<div class="section-head">
-<div class="eyebrow">01 / About</div>
-<h2>Built to make<br>content stand out.</h2>
-<p>
-Every cut, transition and sound has a purpose. I focus on turning
-raw footage into polished content that keeps people watching.
-</p>
-</div>
-
-
-<div class="about-grid">
-
-<div class="about-images">
-
-<img src="photo2.jpg" alt="W4S AADI editing setup">
-
-<img src="photo3.jpg" alt="W4S AADI">
-
-</div>
-
-
-<div class="about-text">
-
-<h3>W4S AADI</h3>
-
-<p>
-I’m a video editor who loves creating modern, aesthetic and
-high-retention content. From long-form YouTube videos to fast-paced
-Shorts and Instagram Reels, I focus on making every second count.
-</p>
-
-<p>
-My editing style combines clean storytelling, strong pacing,
-sound design, motion graphics and cinematic visuals.
-</p>
-
-<div class="about-points">
-
-<div class="point">
-<strong>Creative Editing</strong>
-<span>Storytelling & visual direction</span>
-</div>
-
-<div class="point">
-<strong>Fast Pacing</strong>
-<span>Retention-focused cuts</span>
-</div>
-
-<div class="point">
-<strong>Motion Graphics</strong>
-<span>Modern visual effects</span>
-</div>
-
-<div class="point">
-<strong>Sound Design</strong>
-<span>Music, SFX & audio polish</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SERVICES ================= -->
-
-<section class="services" id="services">
-
-<div class="container">
-
-<div class="section-head">
-<div class="eyebrow">02 / Services</div>
-<h2>What I edit.</h2>
-<p>
-Professional editing packages designed for creators, brands and
-content-focused pages.
-</p>
-</div>
-
-
-<div class="service-grid">
-
-
-<!-- YouTube -->
-
-<div class="service-card">
-
-<div class="service-icon">
-
-<svg viewBox="0 0 24 24">
-<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/>
-</svg>
-
-</div>
-
-<h3>YouTube Videos</h3>
-
-<p>
-Long-form YouTube editing with storytelling, pacing, music,
-sound effects, captions and cinematic polish.
-</p>
-
-<div class="price">
-₹5k–10k <small>/ video</small>
-</div>
-
-</div>
-
-
-<!-- Shorts -->
-
-<div class="service-card">
-
-<div class="service-icon">
-
-<svg viewBox="0 0 24 24">
-<path d="M18.4 8.4c-.8-.5-1.7-.5-2.5-.1l-2.1 1.1-3.7-2 2.3-1.3c.8-.4 1.7-.4 2.5.1l2.8 1.6c.3.2.6.4.7.6zm-5.7 4.2L8.3 15l3.8 2.1c.7.4 1.5.4 2.2 0l2.8-1.6c.8-.5 1.2-1.3 1.2-2.2 0-.8-.4-1.6-1.1-2l-2.5-1.4-2 1.1zM6 10.2 3.2 11.8C2.4 12.2 2 13 2 13.9c0 .9.4 1.7 1.2 2.2L6 17.7c.8.5 1.8.5 2.6 0l2.2-1.2-3.8-2.1c-.7-.4-1.1-1.2-1.1-2 0-.9.5-1.7 1.2-2.1l2.3-1.3-2.2-1.2c-.4-.2-.8-.3-1.2-.3-.0.0-.0.0-.0.0z"/>
-</svg>
-
-</div>
-
-<h3>YouTube Shorts</h3>
-
-<p>
-Fast, engaging short-form edits with captions, beat cuts,
-effects and retention-focused pacing.
-</p>
-
-<div class="price">
-₹500–2k <small>/ short</small>
-</div>
-
-</div>
-
-
-<!-- Instagram -->
-
-<div class="service-card">
-
-<div class="service-icon">
-
-<svg viewBox="0 0 24 24">
-<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-</svg>
-
-</div>
-
-<h3>Instagram Reels</h3>
-
-<p>
-Aesthetic and engaging Reels with modern transitions,
-beat-sync editing, captions and visual effects.
-</p>
-
-<div class="price">
-₹500–1500 <small>/ reel</small>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SOFTWARE ================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-head">
-<div class="eyebrow">03 / Tools</div>
-<h2>Software I use.</h2>
-<p>
-Professional tools for editing, motion graphics and fast social content.
-</p>
-</div>
-
-
-<div class="software-grid">
-
-<div class="software">
-<b>Adobe Premiere Pro</b>
-<span>Professional video editing</span>
-</div>
-
-<div class="software">
-<b>Adobe After Effects</b>
-<span>Motion graphics & visual effects</span>
-</div>
-
-<div class="software">
-<b>CapCut</b>
-<span>Fast social media editing</span>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= WORK ================= -->
-
-<section class="work" id="work">
-
-<div class="container">
-
-<div class="section-head">
-<div class="eyebrow">04 / Selected Work</div>
-<h2>See what I create.</h2>
-<p>
-Check out my content and editing samples across YouTube and Instagram.
-</p>
-</div>
-
-
-<div class="work-grid">
-
-
-<!-- Gaming YouTube -->
-
-<div class="work-card">
-
-<div class="work-top">
-
-<div class="social-icon">
-
-<svg viewBox="0 0 24 24">
-<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/>
-</svg>
-
-</div>
-
-<div>
-<h3>Gaming Videos</h3>
-<p>Long-form YouTube editing sample</p>
-</div>
-
-</div>
-
-<a class="work-link"
-href="https://youtube.com/@lagkillff"
-target="_blank"
-rel="noopener">
-VIEW CHANNEL →
-</a>
-
-</div>
-
-
-<!-- Shorts -->
-
-<div class="work-card">
-
-<div class="work-top">
-
-<div class="social-icon">
-
-<svg viewBox="0 0 24 24">
-<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/>
-</svg>
-
-</div>
-
-<div>
-<h3>Shorts Editing</h3>
-<p>Fast-paced short-form samples</p>
-</div>
-
-</div>
-
-<a class="work-link"
-href="https://youtube.com/@w4s_aadicuts"
-target="_blank"
-rel="noopener">
-VIEW SHORTS →
-</a>
-
-</div>
-
-
-<!-- Instagram -->
-
-<div class="work-card">
-
-<div class="work-top">
-
-<div class="social-icon">
-
-<svg viewBox="0 0 24 24">
-<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-</svg>
-
-</div>
-
-<div>
-<h3>Instagram Reels</h3>
-<p>Aesthetic short-form content</p>
-</div>
-
-</div>
-
-<a class="work-link"
-href="https://www.instagram.com/w4s_aadi"
-target="_blank"
-rel="noopener">
-VIEW INSTAGRAM →
-</a>
-
-</div>
-
-
-<!-- Portfolio -->
-
-<div class="work-card">
-
-<div class="work-top">
-
-<div class="social-icon">
-<span style="font-size:22px;">✦</span>
-</div>
-
-<div>
-<h3>Creative Portfolio</h3>
-<p>Editing • Motion • Visuals</p>
-</div>
-
-</div>
-
-<a href="#contact" class="work-link">
-START A PROJECT →
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= PROCESS ================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-head">
-<div class="eyebrow">05 / Process</div>
-<h2>Simple process.<br>Strong output.</h2>
-</div>
-
-
-<div class="process-grid">
-
-<div class="process">
-<div class="number">01</div>
-<h3>Brief</h3>
-<p>You share your footage, references and requirements.</p>
-</div>
-
-<div class="process">
-<div class="number">02</div>
-<h3>Edit</h3>
-<p>I build the edit around your content and target audience.</p>
-</div>
-
-<div class="process">
-<div class="number">03</div>
-<h3>Refine</h3>
-<p>Feedback is used to polish pacing, visuals and details.</p>
-</div>
-
-<div class="process">
-<div class="number">04</div>
-<h3>Deliver</h3>
-<p>Final high-quality video is delivered ready to publish.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="contact" id="contact">
-
-<div class="container">
-
-<div class="contact-box">
-
-<div class="eyebrow">06 / Contact</div>
-
-<h2>LET'S<br>CREATE.</h2>
-
-<p>
-Have a video that needs a professional touch?
-Let’s turn your footage into content people want to watch.
-</p>
-
-<div class="contact-buttons">
-
-<a
-href="https://wa.me/918429152167"
-target="_blank"
-rel="noopener"
-class="bt
+<!-- =========================
+HERO
+=========================
