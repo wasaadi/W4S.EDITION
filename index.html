@@ -4,29 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>W4S EDITION — Video Editor</title>
+<title>W4S.EDITION — Professional Video Editor</title>
 
-<meta name="description" content="W4S EDITION — Professional Video Editing Portfolio by Trived Prateek.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="W4S.EDITION — Professional video editing for YouTube, Shorts and Instagram Reels.">
+<meta name="theme-color" content="#080808">
 
 <style>
-
-:root{
-    --bg:#050505;
-    --bg2:#090909;
-    --card:#0d0d0d;
-    --white:#f5f5f5;
-    --gray:#8d8d8d;
-    --dark:#555;
-    --line:rgba(255,255,255,.10);
-    --line2:rgba(255,255,255,.055);
-    --max:1240px;
-    --radius:28px;
-}
-
 *{
     margin:0;
     padding:0;
@@ -38,23 +21,11 @@ html{
 }
 
 body{
-    background:
-    radial-gradient(circle at 85% 8%,rgba(255,255,255,.075),transparent 28%),
-    radial-gradient(circle at 5% 35%,rgba(255,255,255,.04),transparent 25%),
-    var(--bg);
-    color:var(--white);
-    font-family:"Inter",sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#070707;
+    color:#fff;
+    line-height:1.6;
     overflow-x:hidden;
-}
-
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:9999;
-    opacity:.035;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 
 a{
@@ -63,150 +34,137 @@ a{
 }
 
 img{
+    max-width:100%;
     display:block;
-    width:100%;
 }
 
 .container{
-    width:min(var(--max),calc(100% - 36px));
+    width:min(1150px, 92%);
     margin:auto;
 }
 
-/* =========================================================
-   NAVBAR
-========================================================= */
+/* ================= NAVBAR ================= */
 
-.nav{
+nav{
     position:fixed;
-    z-index:1000;
-    top:15px;
-    left:50%;
-    transform:translateX(-50%);
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    padding:18px 0;
+    background:rgba(7,7,7,.78);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
 
-    width:min(1170px,calc(100% - 24px));
-
+.nav-inner{
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:13px 16px;
-
-    background:rgba(5,5,5,.72);
-    border:1px solid var(--line);
-    border-radius:18px;
-
-    backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
-
-    box-shadow:0 20px 60px rgba(0,0,0,.4);
 }
 
 .logo{
-    font-family:"Space Grotesk";
-    font-weight:800;
-    font-size:14px;
-    letter-spacing:.15em;
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.logo span{
+    color:#999;
 }
 
 .nav-links{
     display:flex;
-    gap:26px;
-    color:#888;
-    font-size:12px;
+    gap:28px;
+    list-style:none;
 }
 
 .nav-links a{
-    transition:.25s;
+    font-size:13px;
+    color:#aaa;
+    transition:.3s;
 }
 
 .nav-links a:hover{
-    color:white;
+    color:#fff;
 }
 
-.nav-hire{
-    padding:9px 15px;
-    border:1px solid rgba(255,255,255,.3);
-    border-radius:999px;
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:.1em;
-    transition:.25s;
+.nav-btn{
+    border:1px solid #444;
+    padding:9px 17px;
+    border-radius:30px;
+    font-size:12px;
+    transition:.3s;
 }
 
-.nav-hire:hover{
-    background:white;
-    color:black;
+.nav-btn:hover{
+    background:#fff;
+    color:#000;
 }
 
-/* =========================================================
-   HERO
-========================================================= */
+/* ================= HERO ================= */
 
 .hero{
     min-height:100vh;
-    padding:145px 0 95px;
-
     display:flex;
     align-items:center;
+    position:relative;
+    padding:120px 0 70px;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    background:rgba(255,255,255,.06);
+    filter:blur(100px);
+    border-radius:50%;
+    top:10%;
+    right:-150px;
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1fr .85fr;
+    grid-template-columns:1.15fr .85fr;
     gap:70px;
     align-items:center;
 }
 
-.eyebrow{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    color:#777;
-    font-size:10px;
-    letter-spacing:.25em;
+.badge{
+    display:inline-flex;
+    border:1px solid #333;
+    padding:8px 14px;
+    border-radius:30px;
+    color:#aaa;
+    font-size:11px;
+    letter-spacing:2px;
     text-transform:uppercase;
-
-    margin-bottom:24px;
+    margin-bottom:22px;
 }
 
-.eyebrow i{
-    width:34px;
-    height:1px;
-    background:#777;
+.hero h1{
+    font-size:clamp(52px,8vw,105px);
+    line-height:.9;
+    letter-spacing:-5px;
+    font-weight:900;
 }
 
-.hero-title{
-    font-family:"Space Grotesk";
-    font-size:clamp(65px,9vw,120px);
-    font-weight:700;
-    letter-spacing:-.075em;
-    line-height:.82;
+.hero h1 span{
+    color:#888;
 }
 
-.hero-title .gray{
-    color:#4d4d4d;
-}
-
-.hero-text{
-    max-width:580px;
-    margin-top:30px;
-
-    color:#909090;
-    font-size:15px;
-    line-height:1.85;
-}
-
-.hero-text strong{
-    color:#ddd;
-    font-weight:500;
+.hero-sub{
+    max-width:570px;
+    margin:28px 0;
+    color:#999;
+    font-size:16px;
 }
 
 .hero-buttons{
     display:flex;
-    gap:11px;
+    gap:13px;
     flex-wrap:wrap;
-    margin-top:32px;
 }
 
 .btn{
@@ -214,814 +172,477 @@ img{
     align-items:center;
     justify-content:center;
     gap:9px;
-
-    padding:13px 18px;
-
-    border-radius:999px;
-    border:1px solid var(--line);
-
-    font-size:11px;
-    font-weight:800;
-
+    padding:14px 23px;
+    border-radius:40px;
+    font-size:13px;
+    font-weight:700;
     transition:.3s;
 }
 
-.btn-white{
-    background:white;
+.btn-main{
+    background:#fff;
     color:#000;
-    border-color:white;
 }
 
-.btn-dark{
-    background:#0b0b0b;
-}
-
-.btn:hover{
+.btn-main:hover{
     transform:translateY(-3px);
 }
 
-/* HERO IMAGE */
+.btn-outline{
+    border:1px solid #333;
+    color:#fff;
+}
 
-.hero-visual{
+.btn-outline:hover{
+    border-color:#777;
+    transform:translateY(-3px);
+}
+
+/* Hero image */
+
+.hero-photo{
     position:relative;
 }
 
-.hero-frame{
-    position:relative;
-    padding:9px;
-}
-
-.hero-frame:before{
-    content:"";
-    position:absolute;
-    inset:-9px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:35px;
-    transform:rotate(2deg);
-}
-
-.hero-image{
-    position:relative;
-    z-index:2;
-
-    height:650px;
+.hero-photo img{
+    width:100%;
+    height:560px;
     object-fit:cover;
-    object-position:center;
-
-    border-radius:27px;
-    filter:grayscale(1);
+    border-radius:25px;
+    filter:grayscale(100%);
+    border:1px solid #222;
 }
 
-.hero-tag{
+.photo-label{
     position:absolute;
-    z-index:5;
-    bottom:25px;
-    left:25px;
-
-    padding:12px 15px;
-
-    background:rgba(0,0,0,.7);
-    border:1px solid rgba(255,255,255,.14);
-    border-radius:13px;
-
+    bottom:20px;
+    left:20px;
+    right:20px;
+    padding:17px;
+    border-radius:17px;
+    background:rgba(0,0,0,.65);
     backdrop-filter:blur(12px);
-
-    font-size:9px;
-    letter-spacing:.17em;
-    text-transform:uppercase;
+    border:1px solid rgba(255,255,255,.1);
 }
 
-.hero-index{
-    position:absolute;
-    right:-24px;
-    top:40px;
-
-    color:#444;
-    font-size:10px;
-    letter-spacing:.2em;
-
-    writing-mode:vertical-rl;
+.photo-label strong{
+    display:block;
+    font-size:15px;
 }
 
-/* =========================================================
-   MARQUEE
-========================================================= */
-
-.marquee{
-    overflow:hidden;
-    padding:21px 0;
-
-    border-top:1px solid var(--line2);
-    border-bottom:1px solid var(--line2);
+.photo-label small{
+    color:#999;
 }
 
-.marquee-track{
-    display:flex;
-    width:max-content;
-    animation:scrollText 25s linear infinite;
-}
-
-.marquee-content{
-    display:flex;
-    align-items:center;
-    gap:35px;
-    padding-right:35px;
-
-    color:#555;
-    font-family:"Space Grotesk";
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:.2em;
-}
-
-.dot{
-    width:5px;
-    height:5px;
-    border-radius:50%;
-    background:#777;
-}
-
-@keyframes scrollText{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
-}
-
-/* =========================================================
-   GENERAL SECTION
-========================================================= */
+/* ================= SECTIONS ================= */
 
 section{
-    padding:120px 0;
+    padding:110px 0;
 }
 
-.section-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:30px;
-
-    margin-bottom:48px;
+.section-head{
+    margin-bottom:55px;
 }
 
-.section-no{
-    color:#555;
-    font-size:9px;
-    letter-spacing:.25em;
+.eyebrow{
+    color:#777;
+    font-size:11px;
+    letter-spacing:3px;
     text-transform:uppercase;
-
     margin-bottom:12px;
 }
 
-.section-title{
-    font-family:"Space Grotesk";
-    font-size:clamp(40px,5vw,67px);
-    letter-spacing:-.06em;
-    line-height:.92;
+.section-head h2{
+    font-size:clamp(35px,5vw,62px);
+    line-height:1;
+    letter-spacing:-2px;
 }
 
-.section-description{
-    max-width:430px;
-    color:#777;
+.section-head p{
+    color:#888;
+    max-width:600px;
+    margin-top:18px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-images{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.about-images img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:18px;
+    border:1px solid #222;
+}
+
+.about-images img:first-child{
+    height:350px;
+    grid-row:span 2;
+}
+
+.about-text h3{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:#999;
+    margin-bottom:18px;
+}
+
+.about-points{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:30px;
+}
+
+.point{
+    padding:16px;
+    border:1px solid #222;
+    border-radius:14px;
+    background:#0c0c0c;
+}
+
+.point strong{
+    display:block;
     font-size:13px;
-    line-height:1.8;
 }
 
-/* =========================================================
-   PLATFORM ICONS
-========================================================= */
+.point span{
+    color:#777;
+    font-size:11px;
+}
 
-.platform-icon{
-    width:52px;
-    height:52px;
+/* ================= SERVICES ================= */
 
+.services{
+    background:#0a0a0a;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service-card{
+    border:1px solid #222;
+    padding:30px;
+    border-radius:22px;
+    background:#0d0d0d;
+    transition:.35s;
+}
+
+.service-card:hover{
+    transform:translateY(-7px);
+    border-color:#555;
+}
+
+.service-icon{
+    width:50px;
+    height:50px;
     display:flex;
     align-items:center;
     justify-content:center;
-
-    border:1px solid var(--line);
-    border-radius:15px;
-
-    background:#090909;
-
-    margin-bottom:35px;
+    border-radius:14px;
+    background:#171717;
+    margin-bottom:25px;
 }
 
-.platform-icon svg{
+.service-icon svg{
     width:25px;
     height:25px;
-    fill:white;
+    fill:#fff;
 }
 
-/* =========================================================
-   SERVICES
-========================================================= */
+.service-card h3{
+    font-size:21px;
+    margin-bottom:10px;
+}
 
-.services{
+.service-card p{
+    color:#777;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.price{
+    font-size:22px;
+    font-weight:800;
+}
+
+.price small{
+    font-size:11px;
+    color:#777;
+    font-weight:400;
+}
+
+/* ================= SOFTWARE ================= */
+
+.software-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:14px;
-}
-
-.service{
-    min-height:350px;
-    position:relative;
-
-    padding:28px;
-
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-
-    background:
-    radial-gradient(circle at 90% 5%,rgba(255,255,255,.065),transparent 35%),
-    #0b0b0b;
-
-    overflow:hidden;
-    transition:.35s;
-}
-
-.service:hover{
-    transform:translateY(-7px);
-    border-color:rgba(255,255,255,.2);
-}
-
-.service-number{
-    color:#555;
-    font-size:9px;
-    letter-spacing:.2em;
-}
-
-.service h3{
-    font-family:"Space Grotesk";
-    font-size:25px;
-    margin-top:10px;
-}
-
-.service p{
-    color:#777;
-    font-size:12px;
-    line-height:1.75;
-    margin-top:9px;
-}
-
-.service-price{
-    position:absolute;
-    left:28px;
-    bottom:28px;
-
-    font-family:"Space Grotesk";
-    font-size:16px;
-    font-weight:600;
-}
-
-.service-price small{
-    display:block;
-
-    color:#555;
-    font-family:Inter;
-    font-size:8px;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-
-    margin-bottom:5px;
-}
-
-/* =========================================================
-   TOOLS
-========================================================= */
-
-.tools{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
-}
-
-.tool{
-    padding:28px;
-
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-
-    background:#0b0b0b;
-}
-
-.tool h3{
-    font-family:"Space Grotesk";
-    font-size:23px;
-}
-
-.tool p{
-    color:#777;
-    font-size:12px;
-    line-height:1.75;
-    margin-top:9px;
-}
-
-.tool-badge{
-    display:inline-block;
-
-    margin-bottom:35px;
-    padding:8px 11px;
-
-    border:1px solid var(--line);
-    border-radius:999px;
-
-    color:#aaa;
-    font-size:9px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-}
-
-/* =========================================================
-   WORK
-========================================================= */
-
-.work-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
     gap:15px;
 }
 
-.work{
-    overflow:hidden;
-
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-
+.software{
+    border:1px solid #222;
+    padding:23px;
+    border-radius:16px;
     background:#0b0b0b;
-
-    transition:.35s;
 }
 
-.work:hover{
-    transform:translateY(-6px);
-    border-color:rgba(255,255,255,.18);
+.software b{
+    font-size:17px;
 }
 
-.work-image-box{
-    height:400px;
+.software span{
+    display:block;
+    color:#666;
+    font-size:11px;
+    margin-top:4px;
+}
+
+/* ================= WORK ================= */
+
+.work{
+    background:#0a0a0a;
+}
+
+.work-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.work-card{
+    min-height:290px;
+    border:1px solid #222;
+    border-radius:22px;
+    padding:30px;
     position:relative;
     overflow:hidden;
+    background:linear-gradient(145deg,#111,#080808);
 }
 
-.work-image{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-    filter:grayscale(1);
-
-    transition:.6s;
-}
-
-.work:hover .work-image{
-    transform:scale(1.05);
-}
-
-.work-overlay{
+.work-card:after{
+    content:"";
     position:absolute;
-    inset:0;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.8),
-        transparent 60%
-    );
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(255,255,255,.04);
+    right:-70px;
+    top:-70px;
 }
 
-.work-platform{
-    position:absolute;
-    top:20px;
-    left:20px;
-
+.work-top{
     display:flex;
     align-items:center;
-    gap:8px;
-
-    padding:9px 11px;
-
-    background:rgba(0,0,0,.65);
-    border:1px solid rgba(255,255,255,.13);
-    border-radius:12px;
-
-    backdrop-filter:blur(10px);
-
-    font-size:9px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
+    gap:15px;
+    margin-bottom:70px;
 }
 
-.work-platform svg{
-    width:15px;
-    height:15px;
-    fill:white;
+.social-icon{
+    width:52px;
+    height:52px;
+    border:1px solid #333;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.work-body{
-    padding:22px;
+.social-icon svg{
+    width:25px;
+    height:25px;
+    fill:#fff;
 }
 
-.work-body small{
-    color:#555;
-    font-size:8px;
-    letter-spacing:.2em;
-    text-transform:uppercase;
+.work-card h3{
+    font-size:23px;
 }
 
-.work-body h3{
-    font-family:"Space Grotesk";
-    font-size:24px;
-    margin-top:8px;
-}
-
-.work-body p{
+.work-card p{
     color:#777;
-    font-size:12px;
-    line-height:1.7;
-    margin-top:6px;
+    font-size:13px;
+    margin-bottom:22px;
 }
 
 .work-link{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-
-    margin-top:18px;
-    padding:10px 14px;
-
-    border:1px solid var(--line);
-    border-radius:999px;
-
-    font-size:10px;
+    gap:7px;
+    font-size:12px;
     font-weight:700;
-
-    transition:.25s;
 }
 
-.work-link:hover{
-    background:white;
-    color:black;
-}
+/* ================= PROCESS ================= */
 
-/* =========================================================
-   PERSONAL / PHOTO SECTION
-========================================================= */
-
-.personal-grid{
+.process-grid{
     display:grid;
-    grid-template-columns:.75fr 1.25fr;
-    gap:16px;
-}
-
-.personal-small{
-    height:600px;
-    overflow:hidden;
-    border-radius:var(--radius);
-    border:1px solid var(--line);
-}
-
-.personal-small img{
-    height:100%;
-    object-fit:cover;
-    filter:grayscale(1);
-}
-
-.personal-large{
-    height:600px;
-    overflow:hidden;
-    border-radius:var(--radius);
-    border:1px solid var(--line);
-
-    position:relative;
-}
-
-.personal-large img{
-    height:100%;
-    object-fit:cover;
-    filter:grayscale(1);
-}
-
-.personal-caption{
-    position:absolute;
-    left:25px;
-    bottom:25px;
-
-    padding:14px 16px;
-
-    background:rgba(0,0,0,.68);
-    border:1px solid rgba(255,255,255,.13);
-    border-radius:14px;
-
-    backdrop-filter:blur(12px);
-}
-
-.personal-caption small{
-    display:block;
-    color:#666;
-    font-size:8px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-}
-
-.personal-caption strong{
-    display:block;
-    margin-top:4px;
-
-    font-family:"Space Grotesk";
-    font-size:15px;
-}
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about{
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.about-image{
-    height:630px;
-
-    object-fit:cover;
-    object-position:center;
-
-    border-radius:var(--radius);
-    filter:grayscale(1);
-
-    border:1px solid var(--line);
-}
-
-.about-text{
-    color:#858585;
-    font-size:14px;
-    line-height:1.9;
-}
-
-.about-text p+p{
-    margin-top:17px;
-}
-
-.about-name{
-    margin-top:30px;
-
-    color:#eee;
-    font-family:"Space Grotesk";
-    font-size:15px;
-    font-weight:600;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:9px;
-
-    margin-top:30px;
-}
-
-.stat{
-    padding:18px;
-
-    border:1px solid var(--line);
-    border-radius:15px;
-
-    background:#0b0b0b;
-}
-
-.stat strong{
-    display:block;
-
-    color:#eee;
-    font-family:"Space Grotesk";
-    font-size:20px;
-}
-
-.stat span{
-    display:block;
-
-    margin-top:4px;
-
-    color:#555;
-    font-size:8px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-}
-
-/* =========================================================
-   PRICING
-========================================================= */
-
-.pricing{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:14px;
 }
 
-.price{
-    padding:30px;
-
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-
+.process{
+    padding:25px;
+    border:1px solid #222;
+    border-radius:17px;
     background:#0b0b0b;
-
-    transition:.3s;
 }
 
-.price:hover{
-    transform:translateY(-5px);
-    border-color:rgba(255,255,255,.2);
-}
-
-.price.featured{
-    background:
-    linear-gradient(145deg,rgba(255,255,255,.09),transparent 60%),
-    #0b0b0b;
-}
-
-.price-platform{
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    color:#777;
-    font-size:9px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-}
-
-.price-platform svg{
-    width:19px;
-    height:19px;
-    fill:#ddd;
-}
-
-.price h3{
-    font-family:"Space Grotesk";
-    font-size:24px;
-    margin-top:17px;
-}
-
-.price-number{
-    margin-top:30px;
-
-    font-family:"Space Grotesk";
-    font-size:28px;
-}
-
-.price-number span{
-    color:#555;
-    font-size:10px;
-}
-
-.price p{
-    color:#6d6d6d;
+.number{
     font-size:12px;
-    line-height:1.75;
-    margin-top:10px;
+    color:#666;
+    margin-bottom:35px;
 }
 
-/* =========================================================
-   CONTACT
-========================================================= */
+.process h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.process p{
+    color:#777;
+    font-size:12px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    text-align:center;
+}
 
 .contact-box{
-    padding:65px;
-
-    border:1px solid var(--line);
-    border-radius:35px;
-
-    background:
-    radial-gradient(circle at 85% 10%,rgba(255,255,255,.09),transparent 30%),
-    #0a0a0a;
-
-    overflow:hidden;
-    position:relative;
+    max-width:850px;
+    margin:auto;
+    padding:65px 30px;
+    border:1px solid #222;
+    border-radius:30px;
+    background:radial-gradient(circle at top,#151515,#090909 65%);
 }
 
 .contact-box h2{
-    font-family:"Space Grotesk";
-    font-size:clamp(45px,7vw,85px);
-    line-height:.88;
-    letter-spacing:-.07em;
+    font-size:clamp(40px,7vw,80px);
+    letter-spacing:-4px;
+    line-height:.95;
 }
 
-.contact-box>p{
-    max-width:570px;
-
-    color:#777;
-    font-size:13px;
-    line-height:1.8;
-
-    margin-top:22px;
+.contact-box p{
+    color:#888;
+    max-width:550px;
+    margin:22px auto 30px;
 }
 
 .contact-buttons{
     display:flex;
+    justify-content:center;
     flex-wrap:wrap;
-    gap:10px;
-
-    margin-top:30px;
+    gap:12px;
 }
 
-.contact-details{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-
-    margin-top:55px;
-}
-
-.contact-detail{
-    padding:16px;
-
-    border:1px solid var(--line);
-    border-radius:15px;
-}
-
-.contact-detail small{
-    display:block;
-
-    color:#555;
-    font-size:8px;
-    letter-spacing:.17em;
-    text-transform:uppercase;
-
-    margin-bottom:5px;
-}
-
-.contact-detail a{
-    color:#ddd;
+.contact-info{
+    margin-top:35px;
+    color:#666;
     font-size:12px;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-    padding:35px 0;
-
-    border-top:1px solid var(--line);
-
-    color:#555;
-    font-size:10px;
+.contact-info a:hover{
+    color:#fff;
 }
 
-.footer{
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid #1c1c1c;
+    padding:30px 0;
+}
+
+.footer-inner{
     display:flex;
     justify-content:space-between;
+    align-items:center;
     gap:20px;
 }
 
+.footer-inner p{
+    color:#555;
+    font-size:11px;
+}
+
 .footer-brand{
-    color:#aaa;
-    font-family:"Space Grotesk";
-    font-weight:700;
-    letter-spacing:.15em;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:2px;
 }
 
-/* =========================================================
-   REVEAL
-========================================================= */
+/* ================= ANIMATION ================= */
 
-.reveal{
-    opacity:0;
-    transform:translateY(28px);
-
-    transition:
-    opacity .8s ease,
-    transform .8s ease;
+.fade{
+    animation:fadeUp .9s ease both;
 }
 
-.reveal.visible{
-    opacity:1;
-    transform:none;
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:900px){
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
 
     .hero-grid{
         grid-template-columns:1fr;
-        gap:55px;
+        gap:45px;
     }
 
-    .hero-visual{
-        order:-1;
+    .hero h1{
+        font-size:62px;
+        letter-spacing:-3px;
     }
 
-    .hero-image{
-        height:570px;
+    .hero-photo img{
+        height:460px;
     }
 
-    .services,
-    .tools,
-    .pricing{
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .software-grid{
         grid-template-columns:1fr;
     }
 
@@ -1029,186 +650,579 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .about{
-        grid-template-columns:1fr;
-        gap:40px;
-    }
-
-    .personal-grid{
+    .process-grid{
         grid-template-columns:1fr 1fr;
     }
 
-    .personal-small,
-    .personal-large{
-        height:500px;
-    }
-
-    .nav-links{
-        display:none;
-    }
-
-    .section-header{
-        display:block;
-    }
-
-    .section-description{
-        margin-top:18px;
+    section{
+        padding:80px 0;
     }
 }
 
-@media(max-width:600px){
+@media(max-width:520px){
 
     .container{
-        width:calc(100% - 26px);
+        width:90%;
     }
 
-    .nav{
-        top:9px;
+    .logo{
+        font-size:18px;
+        letter-spacing:2px;
     }
 
-    .hero{
-        padding:120px 0 70px;
+    .nav-btn{
+        padding:8px 13px;
+        font-size:10px;
     }
 
-    .hero-title{
-        font-size:58px;
+    .hero h1{
+        font-size:53px;
     }
 
-    .hero-image{
-        height:480px;
+    .hero-sub{
+        font-size:14px;
     }
 
-    section{
-        padding:85px 0;
-    }
-
-    .personal-grid{
-        grid-template-columns:1fr;
-    }
-
-    .personal-small{
+    .hero-photo img{
         height:420px;
     }
 
-    .personal-large{
-        height:520px;
+    .about-images{
+        grid-template-columns:1fr;
     }
 
-    .about-image{
-        height:500px;
+    .about-images img,
+    .about-images img:first-child{
+        height:300px;
+        grid-row:auto;
     }
 
-    .stats{
+    .about-points{
+        grid-template-columns:1fr;
+    }
+
+    .process-grid{
         grid-template-columns:1fr;
     }
 
     .contact-box{
-        padding:35px 22px;
+        padding:50px 20px;
     }
 
-    .contact-details{
-        grid-template-columns:1fr;
+    .contact-box h2{
+        letter-spacing:-2px;
     }
 
-    .footer{
-        display:block;
-    }
-
-    .footer span+span{
-        display:block;
-        margin-top:8px;
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
     }
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- ================= NAVIGATION ================= -->
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+<nav>
+<div class="container nav-inner">
 
-<header class="nav">
+<a href="#home" class="logo">
+W4S<span>.EDITION</span>
+</a>
 
-    <a href="#home" class="logo">
-        W4S EDITION
-    </a>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
-    <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#tools">Tools</a>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#pricing">Pricing</a>
-    </nav>
+<a href="#contact" class="nav-btn">HIRE ME</a>
 
-    <a href="#contact" class="nav-hire">
-        HIRE ME
-    </a>
-
-</header>
+</div>
+</nav>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
 <div class="container hero-grid">
 
-    <div class="reveal">
+<div class="fade">
 
-        <div class="eyebrow">
-            <i></i>
-            Video Editor / Visual Storyteller
-        </div>
+<div class="badge">
+Professional Video Editor
+</div>
 
-        <h1 class="hero-title">
-            W4S
-            <span class="gray">EDITION</span>
-        </h1>
+<h1>
+EDIT.<br>
+<span>CREATE.</span><br>
+IMPACT.
+</h1>
 
-        <p class="hero-text">
+<p class="hero-sub">
+I’m <strong>W4S AADI</strong>, a professional video editor focused on clean,
+cinematic and engaging edits for YouTube, Shorts and Instagram.
+</p>
 
-            Professional video editing focused on
-            <strong>storytelling, pacing, sound design,
-            motion and visual impact.</strong>
+<div class="hero-buttons">
 
-            From long-form YouTube videos to
-            high-retention Shorts and Instagram Reels.
+<a href="#work" class="btn btn-main">
+VIEW MY WORK
+</a>
 
-        </p>
+<a href="#contact" class="btn btn-outline">
+HIRE ME
+</a>
 
-        <div class="hero-buttons">
+</div>
 
-            <a href="#contact" class="btn btn-white">
-                START A PROJECT →
-            </a>
-
-            <a href="#work" class="btn btn-dark">
-                VIEW MY WORK
-            </a>
-
-        </div>
-
-    </div>
+</div>
 
 
-    <div class="hero-visual reveal">
+<div class="hero-photo fade">
 
-        <div class="hero-frame">
+<img src="photo1.jpg" alt="W4S AADI">
 
-            <!-- YOUR FIRST PHOTO -->
+<div class="photo-label">
+<strong>W4S AADI</strong>
+<small>Editor • Creator • Visual Storyteller</small>
+</div>
 
-            <img
-                src="hero.jpg"
-                class="hero-image"
-                alt="W4S EDITION"
-            >
+</div>
 
-            <div class="hero-tag">
-                Edit • Cut • Create
-            <
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">01 / About</div>
+<h2>Built to make<br>content stand out.</h2>
+<p>
+Every cut, transition and sound has a purpose. I focus on turning
+raw footage into polished content that keeps people watching.
+</p>
+</div>
+
+
+<div class="about-grid">
+
+<div class="about-images">
+
+<img src="photo2.jpg" alt="W4S AADI editing setup">
+
+<img src="photo3.jpg" alt="W4S AADI">
+
+</div>
+
+
+<div class="about-text">
+
+<h3>W4S AADI</h3>
+
+<p>
+I’m a video editor who loves creating modern, aesthetic and
+high-retention content. From long-form YouTube videos to fast-paced
+Shorts and Instagram Reels, I focus on making every second count.
+</p>
+
+<p>
+My editing style combines clean storytelling, strong pacing,
+sound design, motion graphics and cinematic visuals.
+</p>
+
+<div class="about-points">
+
+<div class="point">
+<strong>Creative Editing</strong>
+<span>Storytelling & visual direction</span>
+</div>
+
+<div class="point">
+<strong>Fast Pacing</strong>
+<span>Retention-focused cuts</span>
+</div>
+
+<div class="point">
+<strong>Motion Graphics</strong>
+<span>Modern visual effects</span>
+</div>
+
+<div class="point">
+<strong>Sound Design</strong>
+<span>Music, SFX & audio polish</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services" id="services">
+
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">02 / Services</div>
+<h2>What I edit.</h2>
+<p>
+Professional editing packages designed for creators, brands and
+content-focused pages.
+</p>
+</div>
+
+
+<div class="service-grid">
+
+
+<!-- YouTube -->
+
+<div class="service-card">
+
+<div class="service-icon">
+
+<svg viewBox="0 0 24 24">
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+</svg>
+
+</div>
+
+<h3>YouTube Videos</h3>
+
+<p>
+Long-form YouTube editing with storytelling, pacing, music,
+sound effects, captions and cinematic polish.
+</p>
+
+<div class="price">
+₹5k–10k <small>/ video</small>
+</div>
+
+</div>
+
+
+<!-- Shorts -->
+
+<div class="service-card">
+
+<div class="service-icon">
+
+<svg viewBox="0 0 24 24">
+<path d="M18.4 8.4c-.8-.5-1.7-.5-2.5-.1l-2.1 1.1-3.7-2 2.3-1.3c.8-.4 1.7-.4 2.5.1l2.8 1.6c.3.2.6.4.7.6zm-5.7 4.2L8.3 15l3.8 2.1c.7.4 1.5.4 2.2 0l2.8-1.6c.8-.5 1.2-1.3 1.2-2.2 0-.8-.4-1.6-1.1-2l-2.5-1.4-2 1.1zM6 10.2 3.2 11.8C2.4 12.2 2 13 2 13.9c0 .9.4 1.7 1.2 2.2L6 17.7c.8.5 1.8.5 2.6 0l2.2-1.2-3.8-2.1c-.7-.4-1.1-1.2-1.1-2 0-.9.5-1.7 1.2-2.1l2.3-1.3-2.2-1.2c-.4-.2-.8-.3-1.2-.3-.0.0-.0.0-.0.0z"/>
+</svg>
+
+</div>
+
+<h3>YouTube Shorts</h3>
+
+<p>
+Fast, engaging short-form edits with captions, beat cuts,
+effects and retention-focused pacing.
+</p>
+
+<div class="price">
+₹500–2k <small>/ short</small>
+</div>
+
+</div>
+
+
+<!-- Instagram -->
+
+<div class="service-card">
+
+<div class="service-icon">
+
+<svg viewBox="0 0 24 24">
+<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+</svg>
+
+</div>
+
+<h3>Instagram Reels</h3>
+
+<p>
+Aesthetic and engaging Reels with modern transitions,
+beat-sync editing, captions and visual effects.
+</p>
+
+<div class="price">
+₹500–1500 <small>/ reel</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SOFTWARE ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">03 / Tools</div>
+<h2>Software I use.</h2>
+<p>
+Professional tools for editing, motion graphics and fast social content.
+</p>
+</div>
+
+
+<div class="software-grid">
+
+<div class="software">
+<b>Adobe Premiere Pro</b>
+<span>Professional video editing</span>
+</div>
+
+<div class="software">
+<b>Adobe After Effects</b>
+<span>Motion graphics & visual effects</span>
+</div>
+
+<div class="software">
+<b>CapCut</b>
+<span>Fast social media editing</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= WORK ================= -->
+
+<section class="work" id="work">
+
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">04 / Selected Work</div>
+<h2>See what I create.</h2>
+<p>
+Check out my content and editing samples across YouTube and Instagram.
+</p>
+</div>
+
+
+<div class="work-grid">
+
+
+<!-- Gaming YouTube -->
+
+<div class="work-card">
+
+<div class="work-top">
+
+<div class="social-icon">
+
+<svg viewBox="0 0 24 24">
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+</svg>
+
+</div>
+
+<div>
+<h3>Gaming Videos</h3>
+<p>Long-form YouTube editing sample</p>
+</div>
+
+</div>
+
+<a class="work-link"
+href="https://youtube.com/@lagkillff"
+target="_blank"
+rel="noopener">
+VIEW CHANNEL →
+</a>
+
+</div>
+
+
+<!-- Shorts -->
+
+<div class="work-card">
+
+<div class="work-top">
+
+<div class="social-icon">
+
+<svg viewBox="0 0 24 24">
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+</svg>
+
+</div>
+
+<div>
+<h3>Shorts Editing</h3>
+<p>Fast-paced short-form samples</p>
+</div>
+
+</div>
+
+<a class="work-link"
+href="https://youtube.com/@w4s_aadicuts"
+target="_blank"
+rel="noopener">
+VIEW SHORTS →
+</a>
+
+</div>
+
+
+<!-- Instagram -->
+
+<div class="work-card">
+
+<div class="work-top">
+
+<div class="social-icon">
+
+<svg viewBox="0 0 24 24">
+<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+</svg>
+
+</div>
+
+<div>
+<h3>Instagram Reels</h3>
+<p>Aesthetic short-form content</p>
+</div>
+
+</div>
+
+<a class="work-link"
+href="https://www.instagram.com/w4s_aadi"
+target="_blank"
+rel="noopener">
+VIEW INSTAGRAM →
+</a>
+
+</div>
+
+
+<!-- Portfolio -->
+
+<div class="work-card">
+
+<div class="work-top">
+
+<div class="social-icon">
+<span style="font-size:22px;">✦</span>
+</div>
+
+<div>
+<h3>Creative Portfolio</h3>
+<p>Editing • Motion • Visuals</p>
+</div>
+
+</div>
+
+<a href="#contact" class="work-link">
+START A PROJECT →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROCESS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">05 / Process</div>
+<h2>Simple process.<br>Strong output.</h2>
+</div>
+
+
+<div class="process-grid">
+
+<div class="process">
+<div class="number">01</div>
+<h3>Brief</h3>
+<p>You share your footage, references and requirements.</p>
+</div>
+
+<div class="process">
+<div class="number">02</div>
+<h3>Edit</h3>
+<p>I build the edit around your content and target audience.</p>
+</div>
+
+<div class="process">
+<div class="number">03</div>
+<h3>Refine</h3>
+<p>Feedback is used to polish pacing, visuals and details.</p>
+</div>
+
+<div class="process">
+<div class="number">04</div>
+<h3>Deliver</h3>
+<p>Final high-quality video is delivered ready to publish.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<div class="eyebrow">06 / Contact</div>
+
+<h2>LET'S<br>CREATE.</h2>
+
+<p>
+Have a video that needs a professional touch?
+Let’s turn your footage into content people want to watch.
+</p>
+
+<div class="contact-buttons">
+
+<a
+href="https://wa.me/918429152167"
+target="_blank"
+rel="noopener"
+class="bt
